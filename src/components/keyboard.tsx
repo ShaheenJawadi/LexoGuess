@@ -19,12 +19,10 @@ const  Keyboard=()=> {
                 .split('')
                 .map((letter) =>
                 letter=='#'?
-                    (
+                  (
                       <div   className={` keyboardButton spec`} >
                         <Icon path={mdiBackspace}
-                        
                           size={0.8}
-                          
                         />
                       </div>
                     

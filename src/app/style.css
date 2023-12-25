@@ -32,9 +32,27 @@ padding: 10px;
     border: 2px solid #000;
     border-radius: 5px;
     width: 100%;
-    font-size: 20px;
+    font-size: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
+
+.board .cell.absent{
+  background: var(--word-absent);
+  color: #fff;
+}
+.board .cell.present{
+    background: var(--word-present);
+  color: #fff;
+
+}
+
+.board .cell.correct{
+    background: var(--word-correct);
+  color: #fff;
+
+}
 
 .keyboardCore{
     
