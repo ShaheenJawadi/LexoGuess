@@ -37,8 +37,34 @@ padding: 10px;
 
 
 .keyboardCore{
-    display: flex;
-    justify-content: center;
+    
     padding: 10px;
+    max-width: 620px;
+    align-self: center;
 
 }
+.keyboardRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}  
+.keyboardButton {
+    color: #fff;
+    background: #79797961;
+    width: 45px;
+    margin: 2px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    flex: 1;
+}
+
+.keyboardButton.spec{
+    display: flex;
+    flex: 2;
+    align-items: center;
+    justify-content: center;
+}
+
