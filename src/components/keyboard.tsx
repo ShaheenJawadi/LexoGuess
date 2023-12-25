@@ -1,6 +1,8 @@
 import Key from "./key"
 import Icon from '@mdi/react';
 import { mdiBackspace } from '@mdi/js';
+import { checkLetter } from "@/utils";
+import { wordsData } from "@/types";
 
 
 const  Keyboard=()=> {
@@ -8,6 +10,12 @@ const  Keyboard=()=> {
 
  
   const keys =  [ 'azertyuiop', 'qsdfghjklm', 'wxcvbn#' ]
+
+    const mockDataWord:wordsData ={
+      absent: "ernpf",
+      present: "vgk",
+      correct: "shaen"
+    }
 
     return (
       <>
@@ -29,7 +37,9 @@ const  Keyboard=()=> {
                   )  
                   :(
                     <Key
+                    
                       key={letter}
+                      letterStatus={checkLetter(letter ,mockDataWord)}
                       letter={letter} 
                     />
                   )

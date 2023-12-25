@@ -68,7 +68,7 @@ padding: 10px;
 }  
 .keyboardButton {
     color: #fff;
-    background: #79797961;
+    background: #7979794a;
     width: 45px;
     margin: 2px;
     line-height: 45px;
@@ -86,3 +86,22 @@ padding: 10px;
     justify-content: center;
 }
 
+
+
+
+
+.keyboardButton.absent{
+    background: var(--word-absent);
+ 
+  }
+  .keyboardButton.present{
+      background: var(--word-present);
+ 
+  
+  }
+  
+  .keyboardButton.correct{
+      background: var(--word-correct);
+    
+  
+  }

@@ -8,3 +8,9 @@ export type entredWords ={
 }
 
 export type letterStatus =  "absent"|"present"|"correct"|"";
+
+export type wordsData={
+    absent:string ;
+    present:string ;
+    correct:string ; 
+}
