@@ -1,3 +1,4 @@
+import Cell from "./cell"
 
 
 function Board() {
@@ -6,7 +7,11 @@ function Board() {
     return (
       <>
         <div className="boardCore" >
-          board
+          <div className="board">
+          {[...new Array(30)].map((_, index) => (
+          <Cell />
+        ))}
+          </div>
         </div>
       </>
     )

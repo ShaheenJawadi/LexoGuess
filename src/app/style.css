@@ -15,6 +15,26 @@ max-width: 600px;
 margin: auto;
 padding: 10px;
 }
+.board{
+    display: grid;
+    grid-template-columns: repeat(5, minmax(50px, 60px));
+    grid-template-rows: repeat(6, minmax(50px, 60px));
+    grid-gap: 6px;
+    justify-items: center;
+    margin: auto;
+}
+.board .cell {
+    color: #000;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #000;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 20px;
+}
+
 
 .keyboardCore{
     display: flex;
