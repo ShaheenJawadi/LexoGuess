@@ -1,0 +1,24 @@
+
+.mainPage{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.headerCore {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.boardCore{
+max-width: 600px;
+margin: auto;
+padding: 10px;
+}
+
+.keyboardCore{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+
+}
