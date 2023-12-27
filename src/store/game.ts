@@ -5,14 +5,14 @@ import { createSlice } from '@reduxjs/toolkit'
 type initialStateType= {
   word:string , 
   entredWords:entredWordsType[]
-  keyboardData:keyboardDataType
+  keyboardData:keyboardDataType, 
+  line :number ,
 
 }
 const initialState:initialStateType={
   word:"peace",
   entredWords:[
-    {
-      words:[
+    [
         {
           alpha:'S' , status:'correct'
         },
@@ -28,10 +28,8 @@ const initialState:initialStateType={
         {
           alpha:'j' , status:'present'
         }
-      ]
-    },
-    {
-      words:[
+    ],
+   [
         {
           alpha:'S' , status:'correct'
         },
@@ -47,14 +45,15 @@ const initialState:initialStateType={
         {
           alpha:'i' , status:'present'
         }
-      ]
-    }
+    ]
+   
   ],
   keyboardData:{
     absent: "ernpf",
     present: "vgk",
     correct: "shaen"
   },
+  line :2 ,
 
 }
 
@@ -64,8 +63,27 @@ export const appGameSlice = createSlice({
   reducers: {
    
     handleAddLetter: (state, action) => {
-       state.keyboardData.absent="yui"
-      console.log(action.payload)
+      let entredWords = state.entredWords;
+      if(state.line<6){
+        if(entredWords[state.line]===undefined){
+          entredWords.push([{
+            alpha:action.payload , status:''
+          }])
+
+        }
+        else if (entredWords[state.line].length<5) {
+          
+          entredWords[state.line].push({
+            alpha:action.payload , status:''
+          })
+        }
+      }
+
+
+     
+        state.entredWords =entredWords
+
+      
     }
     
   }

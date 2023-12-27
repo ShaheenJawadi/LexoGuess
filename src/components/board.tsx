@@ -15,8 +15,8 @@ function Board( ) {
           {[...new Array(6)].map((_, wordIndex) => 
             [...new Array(5)].map((_, letterIndex) => (
               <Cell key={wordIndex+"-"+letterIndex}
-                letter={data?.entredWords[wordIndex]?.words[letterIndex]?.alpha}
-                letterStatus={data?.entredWords[wordIndex]?.words[letterIndex]?.status}
+                letter={data?.entredWords?.[wordIndex]?.[letterIndex]?.alpha}
+                letterStatus={data?.entredWords?.[wordIndex]?.[letterIndex]?.status}
 
               />
             ))
