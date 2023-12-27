@@ -1,3 +1,4 @@
+import Logo from "./logo"
 
 
 function Header() {
@@ -6,7 +7,7 @@ function Header() {
   return (
     <>
       <div className="headerCore"  >
-        LexoGuess
+        <Logo/>
       </div>
     </>
   )

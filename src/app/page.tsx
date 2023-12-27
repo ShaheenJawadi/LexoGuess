@@ -15,8 +15,9 @@ export default function Home() {
       <main className='mainPage'>
         <Header    />
         <Board/>
-        <Keyboard/>
         <Controls/>
+        <Keyboard/>
+        
       </main>
     </Provider>
   )

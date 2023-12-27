@@ -11,6 +11,32 @@
     padding: 10px 0;
 }
 
+.headerCore .logo{
+    display: flex;
+    align-items: center;
+}
+.headerCore .logo span{
+    font-size: 27px;
+    font-weight: 700;
+    width: 25px;
+    height: 35px;
+    margin: 0 1px;
+}
+.headerCore .logo .boxed{
+    padding: 1px;
+    border-radius: 3px;
+    width: 35px;
+}
+
+.headerCore .logo .correctColor{
+    background: var(--word-correct);
+}
+.headerCore .logo .presentColor{
+    background: var(--word-present);
+}
+.headerCore .logo .absentColor{
+    background: var(--word-absent);
+}
 .boardCore{
 max-width: 600px;
 margin: auto;
