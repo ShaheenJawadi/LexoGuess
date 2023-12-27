@@ -91,13 +91,9 @@ export const appGameSlice = createSlice({
         entredWords[state.line].pop()
 
 
-      }
-  
-
-     
+      } 
         state.entredWords =entredWords
 
-        console.log(JSON.stringify(state.entredWords))
 
       
     }
