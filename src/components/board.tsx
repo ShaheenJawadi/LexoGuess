@@ -1,50 +1,12 @@
 import { entredWordsType } from "@/types";
 import Cell from "./cell"
+import { useSelector } from "react-redux";
+import {  RootState } from "@/store"; 
 
+ 
 
-function Board() {
-
-
-  const test:entredWordsType[]=[
-    {
-      words:[
-        {
-          alpha:'S' , status:'correct'
-        },
-        {
-          alpha:'h' , status:'absent'
-        },
-        {
-          alpha:'a' , status:'present'
-        },
-        {
-          alpha:'w' , status:'absent'
-        },
-        {
-          alpha:'j' , status:'present'
-        }
-      ]
-    },
-    {
-      words:[
-        {
-          alpha:'S' , status:'correct'
-        },
-        {
-          alpha:'a' , status:'correct'
-        },
-        {
-          alpha:'d' , status:'absent'
-        },
-        {
-          alpha:'j' , status:'correct'
-        },
-        {
-          alpha:'i' , status:'present'
-        }
-      ]
-    }
-  ];
+function Board( ) {
+  const data = useSelector((state: RootState) => state.game)
 
     return (
       <>
@@ -53,8 +15,8 @@ function Board() {
           {[...new Array(6)].map((_, wordIndex) => 
             [...new Array(5)].map((_, letterIndex) => (
               <Cell key={wordIndex+"-"+letterIndex}
-                letter={test[wordIndex]?.words[letterIndex]?.alpha}
-                letterStatus={test[wordIndex]?.words[letterIndex]?.status}
+                letter={data?.entredWords[wordIndex]?.words[letterIndex]?.alpha}
+                letterStatus={data?.entredWords[wordIndex]?.words[letterIndex]?.status}
 
               />
             ))

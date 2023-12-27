@@ -3,8 +3,8 @@ import Icon from '@mdi/react';
 import { mdiBackspace } from '@mdi/js';
 import { checkLetter } from "@/utils";
 import { keyboardDataType } from "@/types";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "@/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/store";
 import { handleAddLetter } from "@/store/game";
 
 
@@ -13,12 +13,9 @@ const  Keyboard=()=> {
   const dispatch = useDispatch<AppDispatch>()
 
   const keys =  [ 'azertyuiop', 'qsdfghjklm', 'wxcvbn#' ]
-
-    const mockDataWord:keyboardDataType ={
-      absent: "ernpf",
-      present: "vgk",
-      correct: "shaen"
-    }
+  const store = useSelector((state: RootState) => state.game)
+  
+  
     const clickKey=(letter:string)=>{
       if(letter!="#"){
 
@@ -53,7 +50,7 @@ const  Keyboard=()=> {
                     <Key
                     
                       key={letter}
-                      letterStatus={checkLetter(letter ,mockDataWord)}
+                      letterStatus={checkLetter(letter ,store.keyboardData)}
                       letter={letter} 
                       onClick={(l)=>clickKey(l)}
                       
