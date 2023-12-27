@@ -84,10 +84,26 @@ export const appGameSlice = createSlice({
         state.entredWords =entredWords
 
       
+    },
+    handleBackspace: (state) => {
+      let entredWords = state.entredWords;
+      if(entredWords[state.line] !==undefined){
+        entredWords[state.line].pop()
+
+
+      }
+  
+
+     
+        state.entredWords =entredWords
+
+        console.log(JSON.stringify(state.entredWords))
+
+      
     }
     
   }
 })
  
-export const { handleAddLetter } = appGameSlice.actions
+export const { handleAddLetter ,handleBackspace} = appGameSlice.actions
 export default appGameSlice.reducer

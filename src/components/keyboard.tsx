@@ -5,7 +5,7 @@ import { checkLetter } from "@/utils";
 import { keyboardDataType } from "@/types";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
-import { handleAddLetter } from "@/store/game";
+import { handleAddLetter,handleBackspace} from "@/store/game";
 
 
 const  Keyboard=()=> {
@@ -23,7 +23,9 @@ const  Keyboard=()=> {
 
       }
       else {
-          console.log('backspace')
+
+        dispatch(handleBackspace());
+        
       }
 
     }
