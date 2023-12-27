@@ -1,7 +1,7 @@
-import { letterStatus, wordsData } from "@/types";
+import { letterStatus, keyboardDataType } from "@/types";
 
  
-export function checkLetter (letter :string ,data :wordsData):letterStatus {
+export function checkLetter (letter :string ,data :keyboardDataType):letterStatus {
 
     if(data.absent.includes(letter))
     {

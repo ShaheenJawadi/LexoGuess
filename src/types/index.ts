@@ -1,5 +1,5 @@
  
-export type entredWords ={
+export type entredWordsType ={
     words:{
         alpha : string , 
         status : letterStatus , 
@@ -9,7 +9,7 @@ export type entredWords ={
 
 export type letterStatus =  "absent"|"present"|"correct"|"";
 
-export type wordsData={
+export type keyboardDataType={
     absent:string ;
     present:string ;
     correct:string ; 

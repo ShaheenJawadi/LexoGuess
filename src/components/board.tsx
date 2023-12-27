@@ -1,11 +1,11 @@
-import { entredWords } from "@/types";
+import { entredWordsType } from "@/types";
 import Cell from "./cell"
 
 
 function Board() {
 
 
-  const test:entredWords[]=[
+  const test:entredWordsType[]=[
     {
       words:[
         {
