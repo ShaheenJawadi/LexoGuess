@@ -21,6 +21,7 @@ const initialState:initialStateType={
 
 }
 
+
 export const appGameSlice = createSlice({
   name: 'appGame',
   initialState,
