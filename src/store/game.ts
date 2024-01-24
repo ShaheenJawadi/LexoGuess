@@ -15,18 +15,15 @@ export const handleSubmit = createAsyncThunk(
         const currentWord = game.entredWords[game.line].reduce( (prevVal:string, currVal)=>{
           return   prevVal   + currVal.alpha;
         }, "");
-       
-           
-        await axios
-          .get("https://api.dictionaryapi.dev/api/v2/entries/en/" + currentWord)
-          .then((res) => {
-            const data: any[] = res.data;
-            if (data.length == 1 && data[0].word) return true;
-            else throw false;
-          })
-          .catch(() => {
-            throw false;
-          });
+        const res = await axios.get( "https://api.dictionaryapi.dev/api/v2/entries/en/" + currentWord );
+        const data = res.data;
+
+        if (data.length === 1 && data[0].word) {
+          console.log("Word found in the dictionary");
+          return true;
+        } else {
+          throw new Error("Word not found in the dictionary");
+        }
 
     }catch{
       
@@ -87,54 +84,49 @@ export const appGameSlice = createSlice({
       }
       state.entredWords = entredWords;
     },
-    // handleSubmit: (state) => {
-    //   let entredWords = state.entredWords;
-    //   let keyboardData = state.keyboardData;
-    //   let isCorrect: boolean = true;
-
-    //   if (
-    //     entredWords[state.line] !== undefined &&
-    //     entredWords[state.line].length == 5
-    //   ) {
-    //     entredWords[state.line].map((value, index) => {
-    //       let alpha = entredWords[state.line][index].alpha,
-    //         status: "absent" | "present" | "correct" = "absent";
-    //       if (state.word[index] == alpha) {
-    //         status = "correct";
-    //         keyboardData.correct += alpha;
-    //       } else {
-    //         isCorrect = false;
-
-    //         if (state.word.indexOf(alpha) != -1) {
-    //           status = "present";
-    //           keyboardData.present += alpha;
-    //         } else {
-    //           status = "absent";
-    //           keyboardData.absent += alpha;
-    //         }
-    //       }
-    //       entredWords[state.line][index].status = status;
-    //       keyboardData[status] += alpha;
-    //     });
-
-    //     state.entredWords = entredWords;
-
-    //     if (isCorrect) {
-    //       alert("correct");
-    //     } else if (state.line < 5) {
-    //       state.line++;
-    //     } else {
-    //       alert("GameOver");
-    //     }
-    //   } else {
-    //     alert("No");
-    //   }
-    // },
+     
   },
   extraReducers: (builder) => {
     builder.addCase(handleSubmit.fulfilled, (state, action) => {
-            
-      console.log(action)
+      if(action.payload){
+          let entredWords = state.entredWords;
+          let keyboardData = state.keyboardData;
+          let isCorrect: boolean = true;
+
+     
+          entredWords[state.line].map((value, index) => {
+            let alpha = entredWords[state.line][index].alpha,
+              status: "absent" | "present" | "correct" = "absent";
+            if (state.word[index] == alpha) {
+              status = "correct";
+              keyboardData.correct += alpha;
+            } else {
+              isCorrect = false;
+
+              if (state.word.indexOf(alpha) != -1) {
+                status = "present";
+                keyboardData.present += alpha;
+              } else {
+                status = "absent";
+                keyboardData.absent += alpha;
+              }
+            }
+            entredWords[state.line][index].status = status;
+            keyboardData[status] += alpha;
+          });
+
+          state.entredWords = entredWords;
+
+          if (isCorrect) {
+            alert("Correct");
+          } else if (state.line < 5) {
+            state.line++;
+          } else {
+            alert("GameOver");
+          }
+     
+      }
+             
     });
   },
 });
