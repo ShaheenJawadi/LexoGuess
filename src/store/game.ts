@@ -5,32 +5,46 @@ import axios from "axios";
 
 export const handleSubmit = createAsyncThunk(
   "appGame/handleSubmit",
-  async (_) => {
-      
- await axios
-   .get("https://api.dictionaryapi.dev/api/v2/entries/en/hello")
-   .then((res) => {
-    const data:any[]=res.data;
-    if(data.length==1 && data[0].word )
-     return true
-    else return false
-   })
-   .catch(() => {
-     return false ;
-   });
+  async (_ ,{getState}) => {
 
+    try {
+        const state = getState() as any;
+        const game: InitialStateType = state.game;
+      
+         if (game.entredWords[game.line].length !== 5) { throw false;}
+        const currentWord = game.entredWords[game.line].reduce( (prevVal:string, currVal)=>{
+          return   prevVal   + currVal.alpha;
+        }, "");
+       
+           
+        await axios
+          .get("https://api.dictionaryapi.dev/api/v2/entries/en/" + currentWord)
+          .then((res) => {
+            const data: any[] = res.data;
+            if (data.length == 1 && data[0].word) return true;
+            else throw false;
+          })
+          .catch(() => {
+            throw false;
+          });
+
+    }catch{
+      
+        return false
+    }
+  
   }
 );
  
 
-type initialStateType= {
+type InitialStateType= {
   word:string , 
   entredWords:entredWordsType[]
   keyboardData:keyboardDataType, 
   line :number ,
 
 }
-const initialState:initialStateType={
+const initialState:InitialStateType={
   word:"peace",
   entredWords:[],
   keyboardData:{
