@@ -5,9 +5,19 @@ import axios from "axios";
 
 export const handleSubmit = createAsyncThunk(
   "appGame/handleSubmit",
-  async () => {
+  async (_) => {
       
-    return true;
+ await axios
+   .get("https://api.dictionaryapi.dev/api/v2/entries/en/hello")
+   .then((res) => {
+    const data:any[]=res.data;
+    if(data.length==1 && data[0].word )
+     return true
+    else return false
+   })
+   .catch(() => {
+     return false ;
+   });
 
   }
 );
