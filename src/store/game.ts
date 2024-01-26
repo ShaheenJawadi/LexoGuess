@@ -18,7 +18,7 @@ export const handleSubmit = createAsyncThunk(
         const res = await axios.get( "https://api.dictionaryapi.dev/api/v2/entries/en/" + currentWord );
         const data = res.data;
 
-        if (data.length === 1 && data[0].word) {
+        if (data.length  && data[0].word) {
           console.log("Word found in the dictionary");
           return true;
         } else {
@@ -33,6 +33,27 @@ export const handleSubmit = createAsyncThunk(
   }
 );
  
+
+export const fetchRandomWord = createAsyncThunk(
+  "appGame/fetchRandomWord",
+  async () => {
+    try {
+      const res = await axios.get(
+        "https://random-word-api.herokuapp.com/word?length=5"
+      );
+      const data = res.data;
+
+      if (data.length && data[0]) {
+        console.log(data[0]);
+        return data[0];
+      } else {
+        throw new Error("Failed to fetch random word");
+      }
+    } catch {
+      return null;
+    }
+  }
+);
 
 type InitialStateType= {
   word:string , 
@@ -87,13 +108,13 @@ export const appGameSlice = createSlice({
      
   },
   extraReducers: (builder) => {
-    builder.addCase(handleSubmit.fulfilled, (state, action) => {
-      if(action.payload){
+    builder
+      .addCase(handleSubmit.fulfilled, (state, action) => {
+        if (action.payload) {
           let entredWords = state.entredWords;
           let keyboardData = state.keyboardData;
           let isCorrect: boolean = true;
 
-     
           entredWords[state.line].map((value, index) => {
             let alpha = entredWords[state.line][index].alpha,
               status: "absent" | "present" | "correct" = "absent";
@@ -124,10 +145,12 @@ export const appGameSlice = createSlice({
           } else {
             alert("GameOver");
           }
-     
-      }
-             
-    });
+        }
+      })
+      .addCase(fetchRandomWord.fulfilled, (state, action) => {
+       state.word= action.payload;
+
+      });
   },
 });
  
