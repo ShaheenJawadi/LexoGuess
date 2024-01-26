@@ -10,6 +10,9 @@ export const handleSubmit = createAsyncThunk(
     try {
         const state = getState() as any;
         const game: InitialStateType = state.game;
+        if(game.isLoading){
+          throw new Error("Fetching a word");
+        }
       
          if (game.entredWords[game.line].length !== 5) { throw false;}
         const currentWord = game.entredWords[game.line].reduce( (prevVal:string, currVal)=>{
@@ -19,7 +22,6 @@ export const handleSubmit = createAsyncThunk(
         const data = res.data;
 
         if (data.length  && data[0].word) {
-          console.log("Word found in the dictionary");
           return true;
         } else {
           throw new Error("Word not found in the dictionary");
@@ -60,19 +62,19 @@ type InitialStateType= {
   entredWords:entredWordsType[]
   keyboardData:keyboardDataType, 
   line :number ,
-
+  isLoading:boolean ,
 }
-const initialState:InitialStateType={
-  word:"peace",
-  entredWords:[],
-  keyboardData:{
+const initialState: InitialStateType = {
+  word: "peace",
+  entredWords: [],
+  keyboardData: {
     absent: "",
     present: "",
-    correct: ""
+    correct: "",
   },
-  line :0 ,
-
-}
+  line: 0,
+  isLoading:true,
+};
  
 export const appGameSlice = createSlice({
   name: "appGame",
@@ -148,8 +150,7 @@ export const appGameSlice = createSlice({
         }
       })
       .addCase(fetchRandomWord.fulfilled, (state, action) => {
-        state.word= action.payload;
-
+        if (action.payload){state.word = action.payload; state.isLoading=false}
       });
   },
 });
