@@ -39,13 +39,13 @@ export const fetchRandomWord = createAsyncThunk(
   async () => {
     try {
       const res = await axios.get(
-        "https://random-word-api.herokuapp.com/word?length=5"
+        "https://random-word-api.herokuapp.com/word?length=5&number=100"
       );
       const data = res.data;
 
-      if (data.length && data[0]) {
-        console.log(data[0]);
-        return data[0];
+      if (data.length  ) {
+         
+        return data[Math.floor(Math.random() * 100)];
       } else {
         throw new Error("Failed to fetch random word");
       }
@@ -148,7 +148,7 @@ export const appGameSlice = createSlice({
         }
       })
       .addCase(fetchRandomWord.fulfilled, (state, action) => {
-       state.word= action.payload;
+        state.word= action.payload;
 
       });
   },
