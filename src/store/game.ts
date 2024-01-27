@@ -76,7 +76,7 @@ const initialState: InitialStateType = {
   },
   line: 0,
   isLoading:true,
-  gameState:"WELCOME",
+  gameState:null,
 };
  
 export const appGameSlice = createSlice({

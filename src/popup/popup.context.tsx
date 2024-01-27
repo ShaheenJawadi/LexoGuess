@@ -12,8 +12,8 @@ type Action = { type: 'open'; view?: PopupViews; payload?: any }
     | { type: 'close'; };
 
 const initialState: State = {
-    view: undefined,
-    isOpen: false, 
+    view: "WELCOME",
+    isOpen: true, 
     data: null,
 };
 
