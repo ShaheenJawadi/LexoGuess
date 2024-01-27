@@ -151,3 +151,7 @@ padding: 10px;
     border: 4px solid var(--word-present);
     cursor: pointer;
   }
+
+.controls .submitBtn[disabled]{
+    opacity: 30%;
+}
