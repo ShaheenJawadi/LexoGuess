@@ -12,7 +12,6 @@ const PopupHolder = () => {
             {view === 'WELCOME' && <div>welcome</div>}
             {view === 'WRONG' && <div>wrong</div>}
             {view === 'CORRECT' && <div>correct</div>}
-
         </CommonPopup>
     );
  
