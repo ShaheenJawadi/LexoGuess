@@ -1,3 +1,4 @@
+import { PopupViews } from '@/popup/popup.context';
 import { entredWordsType, keyboardDataType, letterStatus } from '@/types'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from "axios";
@@ -57,13 +58,14 @@ export const fetchRandomWord = createAsyncThunk(
   }
 );
 
-type InitialStateType= {
-  word:string , 
-  entredWords:entredWordsType[]
-  keyboardData:keyboardDataType, 
-  line :number ,
-  isLoading:boolean ,
-}
+type InitialStateType = {
+  word: string;
+  entredWords: entredWordsType[];
+  keyboardData: keyboardDataType;
+  line: number;
+  isLoading: boolean;
+  gameState: null | PopupViews;
+};
 const initialState: InitialStateType = {
   word: "peace",
   entredWords: [],
@@ -74,6 +76,7 @@ const initialState: InitialStateType = {
   },
   line: 0,
   isLoading:true,
+  gameState:"WELCOME",
 };
  
 export const appGameSlice = createSlice({
@@ -141,11 +144,12 @@ export const appGameSlice = createSlice({
           state.entredWords = entredWords;
 
           if (isCorrect) {
-            alert("Correct");
+            state.gameState="CORRECT";
           } else if (state.line < 5) {
             state.line++;
           } else {
-            alert("GameOver");
+            state.gameState = "WRONG";
+
           }
         }
       })

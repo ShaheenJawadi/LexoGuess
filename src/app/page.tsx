@@ -13,8 +13,9 @@ export default function Home() {
 
   return (
       
-    <Provider store={store}>   
+     
       <PopupProvider>
+      <Provider store={store}>  
         <main className='mainPage'>
           <Header    />
           <Board/>
@@ -24,7 +25,8 @@ export default function Home() {
 
           <PopupHolder/>
         </main>
-      </PopupProvider>
     </Provider>
+      </PopupProvider>
+    
   )
 }
