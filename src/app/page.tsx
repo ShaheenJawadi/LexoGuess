@@ -6,19 +6,22 @@ import Keyboard from '@/components/keyboard'
 import { Provider } from 'react-redux'
 import { store } from '@/store'
 import Controls from '@/components/controls'
+import { PopupProvider } from '@/components/popup/popup.context'
 
 export default function Home() {
 
   return (
       
     <Provider store={store}>   
-      <main className='mainPage'>
-        <Header    />
-        <Board/>
-        <Controls/>
-        <Keyboard/>
-        
-      </main>
+      <PopupProvider>
+        <main className='mainPage'>
+          <Header    />
+          <Board/>
+          <Controls/>
+          <Keyboard/>
+          
+        </main>
+      </PopupProvider>
     </Provider>
   )
 }
