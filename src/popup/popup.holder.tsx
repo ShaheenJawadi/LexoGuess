@@ -1,12 +1,17 @@
  
 import {usePopupState} from '@/popup/popup.context';
 import CommonPopup from '@/components/popup/common';
+
+ 
+
 const PopupHolder = () => {
-    const { isOpen } = usePopupState();
+    const { isOpen, view } = usePopupState();
  
     return (
         <CommonPopup open={isOpen}   >
-            popup
+            {view === 'WELCOME' && <div>welcome</div>}
+            {view === 'WRONG' && <div>wrong</div>}
+            {view === 'CORRECT' && <div>correct</div>}
 
         </CommonPopup>
     );

@@ -1,11 +1,14 @@
 import React, { ReactNode } from 'react';
  
+
+export type PopupViews= "WELCOME"|"CORRECT"|"WRONG";
+
 interface State {
-    view?: string;
+    view?: PopupViews;
     data?: any;
     isOpen: boolean; 
 }
-type Action = { type: 'open'; view?: string; payload?: any }
+type Action = { type: 'open'; view?: PopupViews; payload?: any }
     | { type: 'close'; };
 
 const initialState: State = {
@@ -78,7 +81,7 @@ export function usePopupAction() {
     }
 
     return {
-        openPopup(view?: string, payload?: any) { 
+        openPopup(view?: PopupViews, payload?: any) { 
             dispatch({ type: 'open', view, payload });
         },
         closePopup() {
