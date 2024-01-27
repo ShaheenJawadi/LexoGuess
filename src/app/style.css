@@ -155,3 +155,25 @@ padding: 10px;
 .controls .submitBtn[disabled]{
     opacity: 30%;
 }
+
+
+.popupContainer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(7px);
+}
+
+.popupContainer .popupBox {
+    width: 450px;
+    min-height: 500px;
+    background: #000;
+    border-radius: 5px;
+    border: 1px solid #575757;
+
+}

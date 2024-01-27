@@ -5,14 +5,14 @@
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+ 
 
   
     --word-absent : #484848 ; 
     --word-correct:#0d9331;
     --word-present: #b0ab09;
+
+    --background-color:#121212;
     
  
 
@@ -21,7 +21,7 @@
 }
  
 
-* {
+* { 
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -35,13 +35,8 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: #fff;
+  background:var(--background-color);
 }
 
 a {
