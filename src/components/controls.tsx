@@ -1,18 +1,15 @@
  
 import {  handleSubmit} from "@/store/game";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "@/store";
-import { usePopupAction } from "@/popup/popup.context";
+import { AppDispatch, RootState } from "@/store"; 
 
 function Controls( ) {
     const dispatch = useDispatch<AppDispatch>()
     const store = useSelector((state: RootState) => state.game)
+ 
 
-    const { openPopup } = usePopupAction();
-
-    const handleSubmitBtn=()=>{
-        openPopup("WELCOME")
-        // dispatch(handleSubmit())
+    const handleSubmitBtn=()=>{ 
+        dispatch(handleSubmit())
     }
 
 
