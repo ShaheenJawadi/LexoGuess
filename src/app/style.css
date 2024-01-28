@@ -11,30 +11,33 @@
     padding: 10px 0;
 }
 
-.headerCore .logo{
+.logo{
     display: flex;
     align-items: center;
+    justify-content: center;
 }
-.headerCore .logo span{
+.logo span{
     font-size: 27px;
     font-weight: 700;
     width: 25px;
     height: 35px;
     margin: 0 1px;
+    text-align: center;
+
 }
-.headerCore .logo .boxed{
+.logo .boxed{
     padding: 1px;
     border-radius: 3px;
     width: 35px;
 }
 
-.headerCore .logo .correctColor{
+.logo .correctColor{
     background: var(--word-correct);
 }
-.headerCore .logo .presentColor{
+.logo .presentColor{
     background: var(--word-present);
 }
-.headerCore .logo .absentColor{
+.logo .absentColor{
     background: var(--word-absent);
 }
 .boardCore{
