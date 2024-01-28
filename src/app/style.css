@@ -264,10 +264,12 @@ padding: 10px;
 
 .popupContainer .popupBox .exemples .single .container .box.correct {
     background: var(--word-correct);
+    color: #FFF;
 }
 
 .popupContainer .popupBox .exemples .single .container .box.present {
     background: var(--word-present);
+    color: #FFF;
 }
 
 .popupContainer .popupBox .exemples .single .container .box.absent {
