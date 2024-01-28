@@ -15,9 +15,7 @@ function Controls( ) {
         if (store.gameState){
             openPopup(store.gameState)
         }
-        else {
-            closePopup()
-        }
+   
     } ,[store ,store.gameState] )
     const handleSubmitBtn=()=>{
         dispatch(handleSubmit())

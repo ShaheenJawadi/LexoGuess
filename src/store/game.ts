@@ -159,6 +159,8 @@ export const appGameSlice = createSlice({
         if (action.payload){
   
           const ini = { ...initialState, word: action.payload  ,isLoading:false};
+      
+
           return ini;
         }
       });

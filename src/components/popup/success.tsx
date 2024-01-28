@@ -1,37 +1,39 @@
 import { fetchRandomWord } from "@/store/game";
-import { useDispatch  } from "react-redux";
+import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/store";
 import { usePopupAction } from "@/popup/popup.context";
-const GameOverPopup = () => {
+const SuccessPopup = () => {
 
     const dispatch = useDispatch<AppDispatch>()
     const { closePopup } = usePopupAction();
-   
 
 
-    const handelClick=()=>{
+
+
+    const handelClick = () => {
         dispatch(fetchRandomWord())
         closePopup()
 
     }
- 
+
+
     return (
         <div>
             <div className="info" >
                 <span className="heading">
-                    Oops! All Attempts Failed  
+                    Well Done!  
                 </span>
 
                 <br />
-                It seems like you've exhausted all your attempts, but don't be disheartened. The mystery word remains elusive, but every attempt is a step closer to the solution. You can try again and refine your strategy. 
+                Bravo! You've cracked the code and uncovered the hidden word.
                 <br />
-                Better luck next time!
+                Feel free to challenge yourself again or explore more words. 
                 <div className="btnHolder" >
-                    <button onClick={() => handelClick() }  >Try Again </button>
+                    <button onClick={() => handelClick()} >Play Again</button>
                 </div>
 
 
-             
+
             </div>
 
         </div>
@@ -39,4 +41,4 @@ const GameOverPopup = () => {
 
 }
 
-export default GameOverPopup;
+export default SuccessPopup;

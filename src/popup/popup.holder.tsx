@@ -3,6 +3,7 @@ import {usePopupState} from '@/popup/popup.context';
 import CommonPopup from '@/components/popup/common';
 import WelcomePopup from '@/components/popup/welcome';
 import GameOverPopup from '@/components/popup/gameOver';
+import SuccessPopup from '@/components/popup/success';
 
  
 
@@ -13,7 +14,7 @@ const PopupHolder = () => {
         <CommonPopup open={isOpen}   >
             {view === 'WELCOME' && <WelcomePopup/>}
             {view === 'WRONG' && <GameOverPopup/>}
-            {view === 'CORRECT' && <div>correct</div>}
+            {view === 'CORRECT' && <SuccessPopup/>}
         </CommonPopup>
     );
  
