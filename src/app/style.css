@@ -197,3 +197,80 @@ padding: 10px;
     margin: 2px 6px;
     cursor: pointer;
 }
+
+.popupContainer .popupBox .info {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+.popupContainer .popupBox .info .heading {
+    font-weight: 700;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.popupContainer .popupBox button{
+    padding: 8px 24px;
+    border-radius: 5px;
+    font-size: 17px;
+    background: var(--word-correct);
+    border-color: var(--word-present);
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase; 
+    cursor: pointer;
+}
+
+.popupContainer .popupBox .btnHolder{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.popupContainer .popupBox .exemples {
+    border-top:1px solid #575757;
+    margin-top: 15px;
+    padding-top: 10px;
+}
+
+.popupContainer .popupBox .exemples .single  {
+
+}
+.popupContainer .popupBox .exemples .single .container {
+    display: flex;
+}
+
+.popupContainer .popupBox .exemples .single .container .box {
+    display: flex;
+    height: 30px;
+    width: 30px;
+    background: #fff;
+    margin: 0 4px;
+    color:#000;
+    justify-content: center;
+    font-weight: 700;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.popupContainer .popupBox .exemples .single .ins {
+     font-size: 15px;
+     margin: 4px;
+}
+
+
+
+.popupContainer .popupBox .exemples .single .container .box.correct {
+    background: var(--word-correct);
+}
+
+.popupContainer .popupBox .exemples .single .container .box.present {
+    background: var(--word-present);
+}
+
+.popupContainer .popupBox .exemples .single .container .box.absent {
+    background: var(--word-absent);
+    color: #FFF;
+}
