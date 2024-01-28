@@ -104,6 +104,7 @@ export const appGameSlice = createSlice({
       state.entredWords = entredWords;
     },
     handleBackspace: (state) => {
+      if(state.gameState !==null) return ;
       let entredWords = state.entredWords;
       if (entredWords[state.line] !== undefined) {
         entredWords[state.line].pop();
@@ -149,12 +150,17 @@ export const appGameSlice = createSlice({
             state.line++;
           } else {
             state.gameState = "WRONG";
+          
 
           }
         }
       })
       .addCase(fetchRandomWord.fulfilled, (state, action) => {
-        if (action.payload){state.word = action.payload; state.isLoading=false}
+        if (action.payload){
+  
+          const ini = { ...initialState, word: action.payload  ,isLoading:false};
+          return ini;
+        }
       });
   },
 });

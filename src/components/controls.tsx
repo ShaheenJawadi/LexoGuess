@@ -9,11 +9,14 @@ function Controls( ) {
     const dispatch = useDispatch<AppDispatch>()
     const store = useSelector((state: RootState) => state.game)
 
-    const { openPopup } = usePopupAction();
+    const { openPopup , closePopup } = usePopupAction();
 
     useEffect(()=>{
         if (store.gameState){
             openPopup(store.gameState)
+        }
+        else {
+            closePopup()
         }
     } ,[store ,store.gameState] )
     const handleSubmitBtn=()=>{

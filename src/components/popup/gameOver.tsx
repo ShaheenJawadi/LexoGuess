@@ -1,8 +1,13 @@
-import { usePopupAction } from "@/popup/popup.context";
-
+import { fetchRandomWord } from "@/store/game";
+import { useDispatch  } from "react-redux";
+import { AppDispatch } from "@/store";
 const GameOverPopup = () => {
 
-    const { closePopup } = usePopupAction();
+    const dispatch = useDispatch<AppDispatch>()
+
+   
+
+ 
     return (
         <div>
             <div className="info" >
@@ -15,7 +20,7 @@ const GameOverPopup = () => {
                 <br />
                 Better luck next time!
                 <div className="btnHolder" >
-                    <button onClick={() => closePopup()}  >Try Again </button>
+                    <button onClick={() => dispatch(fetchRandomWord())}  >Try Again </button>
                 </div>
 
 
