@@ -174,7 +174,7 @@ padding: 10px;
 
 .popupContainer .popupBox {
     width: 450px;
-    min-height: 500px;
+    max-height: 550px;
     background: var(--background-color);
     border-radius: 5px;
     border: 1px solid #575757;
