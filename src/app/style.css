@@ -276,3 +276,12 @@ padding: 10px;
     background: var(--word-absent);
     color: #FFF;
 }
+
+.alert{
+    position: absolute;
+    background: #ea0000;
+    top: 53px;
+    padding: 4px;
+    border-radius: 5px;
+    font-size: 17px;
+}

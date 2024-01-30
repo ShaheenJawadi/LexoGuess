@@ -29,7 +29,7 @@ function Controls( ) {
 
     return (
         <>
-            {store.notValidWord && <div className="">not valid word</div>}
+            {store.notValidWord && <div className="alert">Not a valid word</div>}
             <div onClick={() => handleSubmitBtn()} className="controls">
 
                 <button disabled={store.isLoading} className="submitBtn">submit</button>
