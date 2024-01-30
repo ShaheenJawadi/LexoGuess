@@ -58,6 +58,12 @@ export const fetchRandomWord = createAsyncThunk(
   }
 );
 
+
+const keyboardLayout = {
+  querty: ["azertyuiop", "qsdfghjklm", "wxcvbn#"],
+  azerty: ["qwertyuiop", "asdfghjkl", "zxcvbnm#"],
+};
+
 type InitialStateType = {
   word: string;
   entredWords: entredWordsType[];
@@ -65,7 +71,8 @@ type InitialStateType = {
   line: number;
   isLoading: boolean;
   gameState: null | PopupViews;
-  notValidWord:boolean
+  notValidWord: boolean;
+  keyboardLayout:string[];
 };
 const initialState: InitialStateType = {
   word: "peace",
@@ -76,9 +83,10 @@ const initialState: InitialStateType = {
     correct: "",
   },
   line: 0,
-  isLoading:true,
-  gameState:null,
-  notValidWord:false,
+  isLoading: true,
+  gameState: null,
+  notValidWord: false,
+  keyboardLayout: keyboardLayout.querty,
 };
  
 export const appGameSlice = createSlice({

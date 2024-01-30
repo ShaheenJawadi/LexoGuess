@@ -13,9 +13,7 @@ const  Keyboard=()=> {
 
   const dispatch = useDispatch<AppDispatch>()
 
-  // const keys =  [ 'azertyuiop', 'qsdfghjklm', 'wxcvbn#' ]
-  const keys = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm#']
-
+ 
   const store = useSelector((state: RootState) => state.game)
   
 
@@ -59,7 +57,7 @@ const  Keyboard=()=> {
       <>
         <div className="keyboardCore"  >
    
-          {keys.map((row, index) => (
+          {store.keyboardLayout.map((row, index) => (
             <div key={index} className="keyboardRow">
               {row
                 .split('')
