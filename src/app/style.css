@@ -65,22 +65,31 @@ padding: 10px;
     font-size: 40px;
     font-weight: 700;
     text-transform: uppercase;
+
+    backface-visibility: hidden;
+    transform: rotateY(0deg);
+
+    transition-duration: 0.6s;
+    transition-timing-function: ease-in-out;
+    transform-style: preserve-3d;
 }
 
 
 .board .cell.absent{
-  background: var(--word-absent);
-  color: #fff;
+    background: var(--word-absent);
+    color: #fff;
+    transform: rotateY(360deg);
 }
 .board .cell.present{
     background: var(--word-present);
-  color: #fff;
-
+    color: #fff;
+    transform: rotateY(360deg);
 }
 
 .board .cell.correct{
     background: var(--word-correct);
-  color: #fff;
+    color: #fff;
+    transform: rotateY(360deg);
 
 }
 
