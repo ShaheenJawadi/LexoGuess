@@ -65,6 +65,7 @@ type InitialStateType = {
   line: number;
   isLoading: boolean;
   gameState: null | PopupViews;
+  notValidWord:boolean
 };
 const initialState: InitialStateType = {
   word: "peace",
@@ -77,6 +78,7 @@ const initialState: InitialStateType = {
   line: 0,
   isLoading:true,
   gameState:null,
+  notValidWord:false,
 };
  
 export const appGameSlice = createSlice({
@@ -104,14 +106,16 @@ export const appGameSlice = createSlice({
       state.entredWords = entredWords;
     },
     handleBackspace: (state) => {
-      if(state.gameState !==null) return ;
+      if (state.gameState !== null) return;
       let entredWords = state.entredWords;
       if (entredWords[state.line] !== undefined) {
         entredWords[state.line].pop();
       }
       state.entredWords = entredWords;
     },
-     
+    handleNotValidWord:(state)=>{
+      state.notValidWord=false ;
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -145,21 +149,23 @@ export const appGameSlice = createSlice({
           state.entredWords = entredWords;
 
           if (isCorrect) {
-            state.gameState="CORRECT";
+            state.gameState = "CORRECT";
           } else if (state.line < 5) {
             state.line++;
           } else {
             state.gameState = "WRONG";
-          
-
           }
+        } else {
+          state.notValidWord = true;
         }
       })
       .addCase(fetchRandomWord.fulfilled, (state, action) => {
-        if (action.payload){
-  
-          const ini = { ...initialState, word: action.payload  ,isLoading:false};
-      
+        if (action.payload) {
+          const ini = {
+            ...initialState,
+            word: action.payload,
+            isLoading: false,
+          };
 
           return ini;
         }
@@ -167,5 +173,6 @@ export const appGameSlice = createSlice({
   },
 });
  
-export const { handleAddLetter ,handleBackspace} = appGameSlice.actions
+export const { handleAddLetter, handleBackspace, handleNotValidWord } =
+  appGameSlice.actions;
 export default appGameSlice.reducer

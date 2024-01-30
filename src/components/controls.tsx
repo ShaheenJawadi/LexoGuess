@@ -1,5 +1,5 @@
  
-import {  handleSubmit} from "@/store/game";
+import { handleSubmit, handleNotValidWord } from "@/store/game";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
 import { usePopupAction } from "@/popup/popup.context";
@@ -15,18 +15,26 @@ function Controls( ) {
         if (store.gameState){
             openPopup(store.gameState)
         }
+        if (store.notValidWord){
+            setTimeout(() => {
+                dispatch(handleNotValidWord())
+            },1500);
+        }
    
-    } ,[store ,store.gameState] )
+    }, [store, store.gameState, store.notValidWord] )
     const handleSubmitBtn=()=>{
         dispatch(handleSubmit())
     }
 
 
     return (
-        <div onClick={() => handleSubmitBtn()} className="controls">
+        <>
+            {store.notValidWord && <div className="">not valid word</div>}
+            <div onClick={() => handleSubmitBtn()} className="controls">
 
-        <button disabled={store.isLoading} className="submitBtn">submit</button>
-    </div>
+                <button disabled={store.isLoading} className="submitBtn">submit</button>
+            </div>
+        </>
    )
 }
   
