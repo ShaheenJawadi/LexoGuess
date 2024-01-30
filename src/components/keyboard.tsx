@@ -13,7 +13,9 @@ const  Keyboard=()=> {
 
   const dispatch = useDispatch<AppDispatch>()
 
-  const keys =  [ 'azertyuiop', 'qsdfghjklm', 'wxcvbn#' ]
+  // const keys =  [ 'azertyuiop', 'qsdfghjklm', 'wxcvbn#' ]
+  const keys = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm#']
+
   const store = useSelector((state: RootState) => state.game)
   
 
