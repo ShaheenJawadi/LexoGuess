@@ -25,7 +25,7 @@ export default function Home() {
 
           <PopupHolder/>
         </main>
-    </Provider>
+      </Provider>
       </PopupProvider>
     
   )

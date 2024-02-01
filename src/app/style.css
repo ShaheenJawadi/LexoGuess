@@ -9,6 +9,8 @@
 .headerCore {
     text-align: center;
     padding: 10px 0;
+    border-bottom: 1px solid #3a3a3c;
+    width: 100%;
 }
 
 .logo{
