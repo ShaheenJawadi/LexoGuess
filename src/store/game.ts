@@ -60,8 +60,8 @@ export const fetchRandomWord = createAsyncThunk(
 
 
 const keyboardLayout = {
-  querty: ["azertyuiop", "qsdfghjklm", "wxcvbn#"],
-  azerty: ["qwertyuiop", "asdfghjkl", "zxcvbnm#"],
+  azerty: ["azertyuiop", "qsdfghjklm", "wxcvbn#"],
+  qwerty: ["qwertyuiop", "asdfghjkl", "zxcvbnm#"],
 };
 
 type InitialStateType = {
@@ -86,7 +86,7 @@ const initialState: InitialStateType = {
   isLoading: true,
   gameState: null,
   notValidWord: false,
-  keyboardLayout: keyboardLayout.querty,
+  keyboardLayout: keyboardLayout.qwerty,
 };
  
 export const appGameSlice = createSlice({
@@ -121,9 +121,17 @@ export const appGameSlice = createSlice({
       }
       state.entredWords = entredWords;
     },
-    handleNotValidWord:(state)=>{
-      state.notValidWord=false ;
-    }
+    handleNotValidWord: (state) => {
+      state.notValidWord = false;
+    },
+    handleChangeKeywordLayout: (state) => {
+      const currentKeyboardLayout = state.keyboardLayout.slice();
+      if (currentKeyboardLayout.toString() == keyboardLayout.azerty.toString()) {
+        state.keyboardLayout = keyboardLayout.qwerty;
+      } else {
+        state.keyboardLayout = keyboardLayout.azerty;
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -181,6 +189,10 @@ export const appGameSlice = createSlice({
   },
 });
  
-export const { handleAddLetter, handleBackspace, handleNotValidWord } =
-  appGameSlice.actions;
+export const {
+  handleAddLetter,
+  handleBackspace,
+  handleNotValidWord,
+  handleChangeKeywordLayout,
+} = appGameSlice.actions;
 export default appGameSlice.reducer
