@@ -23,8 +23,16 @@ function Header() {
   return (
     <>
       <div className="headerCore"  >
-        <div onClick={() => changeKeywordLayout()} >{keyboardLayout}</div>
-        <Logo/>
+      <div className="block">
+          <div onClick={() => changeKeywordLayout()} className="KeyboardLayout">{keyboardLayout}</div>
+
+      </div>
+        <div className="block">
+             <Logo/>
+        </div>
+     
+
+        <div className="block"></div>
       </div>
     </>
   )
