@@ -7,7 +7,7 @@ import { useState } from "react";
 function Header() {
 
   const dispatch = useDispatch<AppDispatch>()
-  const [keyboardLayout , setKeyBoardLayout]= useState<string>("AZ")
+  const [keyboardLayout , setKeyBoardLayout]= useState<string>("QW")
   const changeKeywordLayout=()=>{
     
     if(keyboardLayout=="AZ"){
