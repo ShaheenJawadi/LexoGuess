@@ -7,34 +7,52 @@
 }
 
 .headerCore {
-    text-align: center;
-    padding: 10px 0;
-}
-
-.headerCore .logo{
+    padding: 10px 15px;
+    border-bottom: 1px solid #3a3a3c;
+    width: 100%;
     display: flex;
     align-items: center;
 }
-.headerCore .logo span{
+.headerCore .block {
+    flex: 1;
+    display: flex;
+}
+
+.headerCore .KeyboardLayout{
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #fff ;
+    cursor: pointer;
+    font-size: 14px;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+.logo span{
     font-size: 27px;
     font-weight: 700;
     width: 25px;
     height: 35px;
     margin: 0 1px;
+    text-align: center;
+
 }
-.headerCore .logo .boxed{
+.logo .boxed{
     padding: 1px;
     border-radius: 3px;
     width: 35px;
 }
 
-.headerCore .logo .correctColor{
+.logo .correctColor{
     background: var(--word-correct);
 }
-.headerCore .logo .presentColor{
+.logo .presentColor{
     background: var(--word-present);
 }
-.headerCore .logo .absentColor{
+.logo .absentColor{
     background: var(--word-absent);
 }
 .boardCore{
@@ -62,22 +80,31 @@ padding: 10px;
     font-size: 40px;
     font-weight: 700;
     text-transform: uppercase;
+
+    backface-visibility: hidden;
+    transform: rotateY(0deg);
+
+    transition-duration: 0.6s;
+    transition-timing-function: ease-in-out;
+    transform-style: preserve-3d;
 }
 
 
 .board .cell.absent{
-  background: var(--word-absent);
-  color: #fff;
+    background: var(--word-absent);
+    color: #fff;
+    transform: rotateY(360deg);
 }
 .board .cell.present{
     background: var(--word-present);
-  color: #fff;
-
+    color: #fff;
+    transform: rotateY(360deg);
 }
 
 .board .cell.correct{
     background: var(--word-correct);
-  color: #fff;
+    color: #fff;
+    transform: rotateY(360deg);
 
 }
 
@@ -151,3 +178,134 @@ padding: 10px;
     border: 4px solid var(--word-present);
     cursor: pointer;
   }
+
+.controls .submitBtn[disabled]{
+    opacity: 30%;
+}
+
+
+.popupContainer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(7px);
+}
+
+.popupContainer .popupBox {
+    width: 450px;
+    max-height: 550px;
+    background: var(--background-color);
+    border-radius: 5px;
+    border: 1px solid #575757;
+    padding: 5px;
+    position: relative;
+}
+
+.popupContainer .popupBox   .close {
+    position: absolute;
+    right: 0;
+    padding: 1px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 13px;
+    align-items: center;
+    margin: 2px 6px;
+    cursor: pointer;
+}
+
+.popupContainer .popupBox .info {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+.popupContainer .popupBox .info .heading {
+    font-weight: 700;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.popupContainer .popupBox button{
+    padding: 8px 24px;
+    border-radius: 5px;
+    font-size: 17px;
+    background: var(--word-correct);
+    border-color: var(--word-present);
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase; 
+    cursor: pointer;
+}
+
+.popupContainer .popupBox .btnHolder{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.popupContainer .popupBox .exemples {
+    border-top:1px solid #575757;
+    margin-top: 15px;
+    padding-top: 10px;
+}
+
+.popupContainer .popupBox .exemples .single  {
+
+}
+.popupContainer .popupBox .exemples .single .container {
+    display: flex;
+}
+
+.popupContainer .popupBox .exemples .single .container .box {
+    display: flex;
+    height: 30px;
+    width: 30px;
+    background: #fff;
+    margin: 0 4px;
+    color:#000;
+    justify-content: center;
+    font-weight: 700;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.popupContainer .popupBox .exemples .single .ins {
+     font-size: 15px;
+     margin: 4px;
+}
+
+
+
+.popupContainer .popupBox .exemples .single .container .box.correct {
+    background: var(--word-correct);
+    color: #FFF;
+}
+
+.popupContainer .popupBox .exemples .single .container .box.present {
+    background: var(--word-present);
+    color: #FFF;
+}
+
+.popupContainer .popupBox .exemples .single .container .box.absent {
+    background: var(--word-absent);
+    color: #FFF;
+}
+
+.alert{
+    position: absolute;
+    background: #ea0000;
+    top: 53px;
+    padding: 4px;
+    border-radius: 5px;
+    font-size: 17px;
+}
