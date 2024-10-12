@@ -25,9 +25,9 @@ const SuccessPopup = () => {
                 </span>
 
                 <br />
-                Bravo! You've cracked the code and uncovered the hidden word.
+                {"Bravo! You've cracked the code and uncovered the hidden word."}
                 <br />
-                Feel free to challenge yourself again or explore more words. 
+                {"Feel free to challenge yourself again or explore more words. "}
                 <div className="btnHolder" >
                     <button onClick={() => handelClick()} >Play Again</button>
                 </div>

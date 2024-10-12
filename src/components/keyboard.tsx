@@ -36,7 +36,7 @@ const  Keyboard=()=> {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, []); 
+  }, [dispatch]); 
   
   
     const clickKey=(letter:string)=>{

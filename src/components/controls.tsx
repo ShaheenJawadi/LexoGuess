@@ -21,7 +21,7 @@ function Controls( ) {
             },1500);
         }
    
-    }, [store, store.gameState, store.notValidWord] )
+    }, [store, store.gameState, store.notValidWord,dispatch , openPopup] )
     const handleSubmitBtn=()=>{
         dispatch(handleSubmit())
     }
