@@ -2,6 +2,14 @@
 
 LexoGuess is a clone of the popular word game  [Wordle](https://www.nytimes.com/games/wordle/index.html). This project is implemented using Next.js, and Redux.
 
+
+
+## Demo
+Explore the live version of the app here:  [LexoGuess](https://shaheenjawadi.github.io/LexoGuess/)
+
+Full link: https://shaheenjawadi.github.io/LexoGuess/
+
+
 ## Features
 
 - Wordle Gameplay: Enjoy the classic Wordle experience of guessing a hidden word within a limited number of attempts.
